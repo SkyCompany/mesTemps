@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Taches</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+      <ion-item-sliding *ngFor="let objTache of tachesList">
+        <ion-item  (click)= "onClickTimer(objTache)">
+          <ion-icon item-start [name]="getActionIcon(objTache)" item-end></ion-icon>
+          <h2>{{ objTache.libelle }}</h2>
+          
+        </ion-item>  
+        <ion-item-options side="right">
+          <button ion-button color="primary">
+            <ion-icon name="text"></ion-icon>
+            Text
+          </button>
+          <button ion-button color="secondary">
+            <ion-icon name="call"></ion-icon>
+            Call
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+  </ion-content>
+  
+  

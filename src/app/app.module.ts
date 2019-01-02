@@ -7,7 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TempsPage } from '../pages/temps/temps';
+import { TachesPage } from '../pages/taches/taches';
 
 import { TachesService } from '../services/taches.service';
 
@@ -21,7 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    TempsPage
+    TachesPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    TempsPage
+    TachesPage
   ],
   providers: [
     StatusBar,

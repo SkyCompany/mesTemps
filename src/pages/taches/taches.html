@@ -1,31 +1,56 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>Taches</ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-    <ion-list>
-      <ion-item-sliding *ngFor="let objTache of tachesList">
-        <ion-item  (click)= "onClickTimer(objTache)">
-          <ion-icon item-start [name]="getActionIcon(objTache)" item-end></ion-icon>
-          <h2>{{ objTache.libelle }}</h2>
-          
-        </ion-item>  
-        <ion-item-options side="right">
-          <button ion-button color="primary">
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
-          <button ion-button color="secondary">
-            <ion-icon name="call"></ion-icon>
-            Call
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+  <ion-navbar>
+    <ion-title>Taches</ion-title>
+  </ion-navbar>
+</ion-header>
 
-    </ion-list>
+<ion-content>
+ 
+  <ion-list>
+    <ion-item-sliding *ngFor="let objTache of tachesList">
+      <ion-item (click)="onClickListTache(objTache)">
 
-  </ion-content>
-  
-  
+        <!-- <ion-icon item-start [name]="getActionIcon(objTache)" item-end></ion-icon> -->
+        {{ objTache.libelle }}
+        {{objTache.tabTacheLigne.length}}
+
+
+        <ion-card *ngIf="tachePrincipale == objTache">
+          <ion-card-header>
+          </ion-card-header>
+          <ion-card-content *ngIf="tachePrincipale">
+            <ion-row>
+              <ion-col col-9>
+                <h2 ion-text>{{ objTache.libelle }}</h2>
+                <p ion-text>
+                  Millet
+                  {{ objTache.getStatut() }}
+                </p>
+                <h1 ion-text *ngIf="chronoPrincipal != '' ">{{ chronoPrincipal }}</h1>
+              </ion-col>
+              <ion-col col-3>
+                <button ion-button full class="btnAction" [color]="getStatutChgColor(tachePrincipale)" (click)="onClickTachePrincipale()">
+                  <ion-icon [name]="getStatutChgIcon(tachePrincipale)"></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+      
+        </ion-card>
+
+
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>
